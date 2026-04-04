@@ -3,9 +3,15 @@ description: Multi-topic CI workflow - detects changes and builds affected topic
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
+
+permissions:
+  packages: write
+  contents: read
 
 jobs:
   detect:
@@ -72,7 +78,7 @@ jobs:
         with:
           context: ./exercises/${{ matrix.topic }}/solution
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ matrix.topic }}-${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}-${{ matrix.topic }}:${{ github.sha }}
 
   summary:
     name: Build summary
