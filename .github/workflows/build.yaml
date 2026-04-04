@@ -1,4 +1,4 @@
-name: ci
+name: build
 description: Multi-topic CI workflow - detects changes and builds affected topics only
 
 on:

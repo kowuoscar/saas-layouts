@@ -30,5 +30,6 @@
 **/values.dev.yaml
 **/build
 **/dist
+**/next
 LICENSE
 README.md
