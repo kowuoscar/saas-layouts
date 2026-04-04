@@ -1,5 +1,5 @@
 name: ci
-description: CI workflow for Exercise 1 of Topic 1 - Project Foundation
+description: Multi-topic CI workflow - detects changes and builds affected topics only
 
 on:
   push:
@@ -8,8 +8,50 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  detect:
+    name: Detect changed topics
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      has-changes: ${{ steps.set-matrix.outputs.has-changes }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            exercises/*/solution/**
+
+      - name: Parse topics from changed files
+        id: set-matrix
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          # Extract unique topic numbers from changed files
+          # e.g., exercises/topic-01/solution/... -> 01
+          TOPICS=$(echo "$CHANGED_FILES" | grep -oP 'exercises/topic-\K\d+' | sort -u | jq -R -s -c 'split("\n")[:-1] | map(tonumber)')
+
+          if [ -z "$TOPICS" ] || [ "$TOPICS" == "[]" ]; then
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+            echo "matrix={\"include\":[]}" >> $GITHUB_OUTPUT
+          else
+            echo "has-changes=true" >> $GITHUB_OUTPUT
+            MATRIX=$(echo "$TOPICS" | jq -c 'map({topic: .})')
+            echo "matrix={\"include\":$MATRIX}" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    name: Build topic-${{ matrix.topic }}
+    needs: detect
+    if: needs.detect.outputs.has-changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.detect.outputs.matrix) }}
+      fail-fast: false
     steps:
       - uses: actions/checkout@v6
         with:
@@ -25,11 +67,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push topic
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ./exercises/topic-${{ format('{0:02d}', matrix.topic) }}/solution
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}:topic-${{ format('{0:02d}', matrix.topic) }}-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  summary:
+    name: Build summary
+    needs: detect
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Report status
+        run: |
+          if [ "${{ needs.detect.outputs.has-changes }}" == "true" ]; then
+            echo "✓ Built topics from matrix: ${{ needs.detect.outputs.matrix }}"
+          else
+            echo "⊘ No changes detected in exercises/*/solution/** folders - skipping builds"
+          fi

@@ -16,17 +16,18 @@ Status: `in-progress`
 Started: 2026-04-04
 
 ### Exercises
-| #  | Difficulty | Description | Status         |
-|----|------------|-------------|----------------|
-| 01 | easy       | Scaffold a Next.js 15 App Router project and annotate the purpose of every generated file | ✅ done |
-| 02 | easy       | Install Tailwind CSS 4 manually using the CSS-first configuration approach with `@tailwindcss/nextjs` | ✅ done |
-| 03 | medium     | Create multiple routes using the App Router file-system convention and demonstrate co-location | ✅ done |
-| 04 | medium     | Modify the root layout to add a Google Font and metadata, then create a nested dashboard layout | ✅ done        |
-| 05 | medium     | Define custom design tokens using the Tailwind CSS 4 `@theme` block and apply them project-wide | ✅ done |
-| 06 | hard       | Harden the scaffold to production standards: strict TypeScript, clean ESLint, zero build warnings | ✅ done        |
-| 07 | hard       | Dockerize the app with a multi-stage build and push to ghcr.io via a GitHub Actions pipeline | 🔄 in progress |
 
-> Exercise files: `exercises/topic-01-project-foundation/`
+| #   | Difficulty | Description                                                                                           | Status         |
+| --- | ---------- | ----------------------------------------------------------------------------------------------------- | -------------- |
+| 01  | easy       | Scaffold a Next.js 15 App Router project and annotate the purpose of every generated file             | ✅ done        |
+| 02  | easy       | Install Tailwind CSS 4 manually using the CSS-first configuration approach with `@tailwindcss/nextjs` | ✅ done        |
+| 03  | medium     | Create multiple routes using the App Router file-system convention and demonstrate co-location        | ✅ done        |
+| 04  | medium     | Modify the root layout to add a Google Font and metadata, then create a nested dashboard layout       | ✅ done        |
+| 05  | medium     | Define custom design tokens using the Tailwind CSS 4 `@theme` block and apply them project-wide       | ✅ done        |
+| 06  | hard       | Harden the scaffold to production standards: strict TypeScript, clean ESLint, zero build warnings     | ✅ done        |
+| 07  | hard       | Dockerize the app with a multi-stage build and push to ghcr.io via a GitHub Actions pipeline          | 🔄 in progress |
+
+> Exercise files: `exercises/topic-01/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions
 
 ---
