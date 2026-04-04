@@ -32,20 +32,20 @@ jobs:
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           # Extract unique topic numbers from changed files
-          # e.g., exercises/topic-01/solution/... -> 01
-          TOPICS=$(echo "$CHANGED_FILES" | grep -oP 'exercises/topic-\K\d+' | sort -u | jq -R -s -c 'split("\n")[:-1] | map(tonumber)')
+          # e.g., exercises/topic-01/solution/... -> topic-01
+          TOPICS=$(echo "$CHANGED_FILES" | grep -oP 'exercises/\Ktopic-\d+' | sort -u)
 
-          if [ -z "$TOPICS" ] || [ "$TOPICS" == "[]" ]; then
+          if [ -z "$TOPICS" ]; then
             echo "has-changes=false" >> $GITHUB_OUTPUT
             echo "matrix={\"include\":[]}" >> $GITHUB_OUTPUT
           else
             echo "has-changes=true" >> $GITHUB_OUTPUT
-            MATRIX=$(echo "$TOPICS" | jq -c 'map({topic: .})')
+            MATRIX=$(echo "$TOPICS" | jq -R -s -c 'split("\n")[:-1] | map({topic: .})')
             echo "matrix={\"include\":$MATRIX}" >> $GITHUB_OUTPUT
           fi
 
   build:
-    name: Build topic-${{ matrix.topic }}
+    name: Build ${{ matrix.topic }}
     needs: detect
     if: needs.detect.outputs.has-changes == 'true'
     runs-on: ubuntu-latest
@@ -70,9 +70,9 @@ jobs:
       - name: Build and push topic
         uses: docker/build-push-action@v7
         with:
-          context: ./exercises/topic-${{ format('{0:02d}', matrix.topic) }}/solution
+          context: ./exercises/${{ matrix.topic }}/solution
           push: true
-          tags: ghcr.io/${{ github.repository }}:topic-${{ format('{0:02d}', matrix.topic) }}-${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}:${{ matrix.topic }}-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
