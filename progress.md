@@ -4,43 +4,55 @@
 
 - Started: 2026-04-04
 - Last active: 2026-04-04
-- Topics completed: 0 / 20
-- Exercises completed: 6 / 140
+- Topics completed: 1 / 20
+- Exercises completed: 7 / 140
 
 ---
 
 ## Current Topic
 
-**Topic 01 — Project foundation & tooling**
+**Topic 02 — Utility fundamentals for SaaS UI**
 Status: `in-progress`
 Started: 2026-04-04
 
 ### Exercises
 
-| #   | Difficulty | Description                                                                                           | Status         |
-| --- | ---------- | ----------------------------------------------------------------------------------------------------- | -------------- |
-| 01  | easy       | Scaffold a Next.js 15 App Router project and annotate the purpose of every generated file             | ✅ done        |
-| 02  | easy       | Install Tailwind CSS 4 manually using the CSS-first configuration approach with `@tailwindcss/nextjs` | ✅ done        |
-| 03  | medium     | Create multiple routes using the App Router file-system convention and demonstrate co-location        | ✅ done        |
-| 04  | medium     | Modify the root layout to add a Google Font and metadata, then create a nested dashboard layout       | ✅ done        |
-| 05  | medium     | Define custom design tokens using the Tailwind CSS 4 `@theme` block and apply them project-wide       | ✅ done        |
-| 06  | hard       | Harden the scaffold to production standards: strict TypeScript, clean ESLint, zero build warnings     | ✅ done        |
-| 07  | hard       | Dockerize the app with a multi-stage build and push to ghcr.io via a GitHub Actions pipeline          | 🔄 in progress |
+| #   | Difficulty | Description                                                                                                           | Status         |
+| --- | ---------- | --------------------------------------------------------------------------------------------------------------------- | -------------- |
+| 01  | easy       | Apply spacing and sizing utilities to build a centered page container with a card inside it                           | 🔄 in progress |
+| 02  | easy       | Apply color and border utilities to build status badges and a notification banner                                     | 🔒 locked      |
+| 03  | medium     | Use typography utilities to build a hero text block with four distinct typographic levels                             | 🔒 locked      |
+| 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button                            | 🔒 locked      |
+| 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards               | 🔒 locked      |
+| 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant                       | 🔒 locked      |
+| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install              | 🔒 locked      |
 
-> Exercise files: `exercises/topic-01/`
+> Exercise files: `exercises/topic-02-utility-fundamentals/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions
 
 ---
 
 ## Completed Topics
 
-None yet.
+### ✅ Topic 01 — Project foundation & tooling
+Completed: 2026-04-04
+Exercises: 7 / 7 done
+
+| #   | Difficulty | Description                                                                                           | Status  |
+| --- | ---------- | ----------------------------------------------------------------------------------------------------- | ------- |
+| 01  | easy       | Scaffold a Next.js 15 App Router project and annotate the purpose of every generated file             | ✅ done |
+| 02  | easy       | Install Tailwind CSS 4 manually using the CSS-first configuration approach with `@tailwindcss/nextjs` | ✅ done |
+| 03  | medium     | Create multiple routes using the App Router file-system convention and demonstrate co-location        | ✅ done |
+| 04  | medium     | Modify the root layout to add a Google Font and metadata, then create a nested dashboard layout       | ✅ done |
+| 05  | medium     | Define custom design tokens using the Tailwind CSS 4 `@theme` block and apply them project-wide       | ✅ done |
+| 06  | hard       | Harden the scaffold to production standards: strict TypeScript, clean ESLint, zero build warnings     | ✅ done |
+| 07  | hard       | Dockerize the app with a multi-stage build and push to ghcr.io via a GitHub Actions pipeline          | ✅ done |
 
 ---
 
 ## Upcoming Topics
 
-- Topic 02 — Utility fundamentals for SaaS UI: Master the core Tailwind spacing, color, typography, and sizing utilities that form the visual vocabulary of every SaaS interface.
+- Topic 03 — App Router file conventions & route segments: Understand page.tsx, layout.tsx, loading.tsx, error.tsx, and not-found.tsx and how nested route segments map to nested UI shells.
 - Topic 03 — App Router file conventions & route segments: Understand page.tsx, layout.tsx, loading.tsx, error.tsx, and not-found.tsx and how nested route segments map to nested UI shells.
 - Topic 04 — Root layout & global shell: Build the outermost HTML shell — fonts, global styles, providers — and learn how the root layout wraps every page in a SaaS app.
 - Topic 05 — Responsive design & mobile-first layout: Apply Tailwind breakpoint prefixes to build layouts that collapse gracefully from desktop dashboards to mobile views.
