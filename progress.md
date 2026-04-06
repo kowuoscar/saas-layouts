@@ -20,13 +20,13 @@ Started: 2026-04-06
 
 | #   | Difficulty | Description | Status         |
 | --- | ---------- | ----------- | -------------- |
-| 01  | easy       | TBD         | 🔄 in progress |
-| 02  | easy       | TBD         | 🔒 locked      |
-| 03  | medium     | TBD         | 🔒 locked      |
-| 04  | medium     | TBD         | 🔒 locked      |
-| 05  | medium     | TBD         | 🔒 locked      |
-| 06  | hard       | TBD         | 🔒 locked      |
-| 07  | hard       | TBD         | 🔒 locked      |
+| 01  | easy       | Create three public routes using page.tsx and observe how folder structure maps to URLs                               | 🔄 in progress |
+| 02  | easy       | Add a shared layout.tsx using a route group to wrap marketing pages with a header and footer                          | 🔒 locked      |
+| 03  | medium     | Add a loading.tsx skeleton to an async page and observe how Suspense streaming works automatically                    | 🔒 locked      |
+| 04  | medium     | Build an error.tsx boundary that catches page errors and lets the user retry without a full reload                    | 🔒 locked      |
+| 05  | medium     | Create a dynamic blog route with notFound() for missing slugs and a styled 404 page                                  | 🔒 locked      |
+| 06  | hard       | Build a production-grade dashboard segment with layout, loading, error, not-found, and co-located components         | 🔒 locked      |
+| 07  | hard       | Add a CD deploy job to the GitHub Actions pipeline so every push to main deploys automatically via Helm              | 🔒 locked      |
 
 > Exercise files: `exercises/topic-03/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions
