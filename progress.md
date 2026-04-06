@@ -3,16 +3,16 @@
 ## Stats
 
 - Started: 2026-04-04
-- Last active: 2026-04-05
-- Topics completed: 1 / 20
-- Exercises completed: 12 / 140
+- Last active: 2026-04-06
+- Topics completed: 2 / 20
+- Exercises completed: 19 / 140
 
 ---
 
 ## Current Topic
 
 **Topic 02 — Utility fundamentals for SaaS UI**
-Status: `in-progress`
+Status: `complete`
 Started: 2026-04-04
 
 ### Exercises
@@ -25,7 +25,7 @@ Started: 2026-04-04
 | 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button               | ✅ done        |
 | 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards  | ✅ done        |
 | 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant          | ✅ done        |
-| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | 🔄 in progress |
+| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | ✅ done        |
 
 > Exercise files: `exercises/topic-02/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions

@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "saas-layouts-topic-02.fullname" . }}
+  name: {{ include "saas-layouts-topic-02.servicename" . }}
+  labels:
+    {{- include "saas-layouts-topic-02.selectorlabels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 3000
   selector:
-    {{- include "saas-layouts-topic-02.selectorLabels" . | nindent 4 }}
+    {{- include "saas-layouts-topic-02.selectorlabels" . | nindent 4 }}

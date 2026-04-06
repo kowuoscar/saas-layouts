@@ -10,9 +10,11 @@ The CI/CD pipeline is not yet automated in this exercise — that comes in Topic
 
 ### Helm chart structure
 
+Each exercise keeps its Helm chart inside its own solution folder. For this exercise:
+
 ```
-helm/
-└── saas-layouts/
+exercises/topic-02/solution/helm/
+└── saas-topic-02/
     ├── Chart.yaml
     ├── values.yaml
     └── templates/
@@ -103,7 +105,7 @@ spec:
 ### Manual install command
 
 ```bash
-helm install saas-layouts ./helm/saas-layouts \
+helm install saas-layouts ./exercises/topic-02/solution/helm/saas-topic-02 \
   --set image.tag=<git-sha-of-your-latest-image> \
   --namespace default
 ```
@@ -126,11 +128,11 @@ kubectl port-forward svc/saas-layouts 3000:3000
 
 ## Acceptance Criteria
 
-- [ ] A Helm chart exists at `helm/saas-layouts/` with `Chart.yaml`, `values.yaml`, and at least `deployment.yaml` and `service.yaml` in `templates/`
+- [ ] A Helm chart exists at `exercises/topic-02/solution/helm/saas-topic-02/` with `Chart.yaml`, `values.yaml`, and at least `deployment.yaml` and `service.yaml` in `templates/`
 - [ ] `values.yaml` defines `image.repository`, `image.tag`, `replicaCount`, `service.port`, and `resources` (requests and limits)
 - [ ] The Deployment template uses `{{ .Values.image.repository }}` and `{{ .Values.image.tag }}` — no hardcoded image references
 - [ ] The Service targets port 3000 and uses `ClusterIP` type
-- [ ] `helm lint ./helm/saas-layouts` passes with no errors
+- [ ] `helm lint ./exercises/topic-02/solution/helm/saas-topic-02` passes with no errors
 - [ ] `helm install` completes successfully on the Hetzner cluster (provide screenshot or `kubectl get pods` output showing `Running` state)
 - [ ] The app responds correctly via `kubectl port-forward`
 
@@ -138,7 +140,7 @@ kubectl port-forward svc/saas-layouts 3000:3000
 
 - No hardcoded image tags in templates — always use `{{ .Values.image.tag }}`
 - No `hostPort` or `NodePort` — use `ClusterIP` for now (ingress comes in Topic 06)
-- The Helm chart must be in the project repository under `helm/`
+- The Helm chart must live inside the exercise solution folder: `exercises/topic-02/solution/helm/saas-topic-02/` — each exercise keeps its own chart co-located with its solution
 - Do not modify the existing Dockerfile or GitHub Actions workflow (CI/CD automation comes in Topic 03)
 
 ## Suggested resources

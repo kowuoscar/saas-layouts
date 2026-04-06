@@ -1,62 +1,15 @@
-{{/*
-Expand the name of the chart.
-*/}}
-{{- define "saas-topic-02.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- define "saas-layouts-topic-02.fullname" -}}
+saas-layouts-topic-02
 {{- end }}
 
-{{/*
-Create a default fully qualified app name.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
-If release name contains chart name it will be used as a full name.
-*/}}
-{{- define "saas-topic-02.fullname" -}}
-{{- if .Values.fullnameOverride }}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
-{{- else }}
-{{- $name := default .Chart.Name .Values.nameOverride }}
-{{- if contains $name .Release.Name }}
-{{- .Release.Name | trunc 63 | trimSuffix "-" }}
-{{- else }}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
-{{- end }}
-{{- end }}
+{{- define "saas-layouts-topic-02.deploymentname" -}}
+{{ include "saas-layouts-topic-02.fullname" . }}-deploy
 {{- end }}
 
-{{/*
-Create chart name and version as used by the chart label.
-*/}}
-{{- define "saas-topic-02.chart" -}}
-{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- define "saas-layouts-topic-02.servicename" -}}
+{{ include "saas-layouts-topic-02.fullname" . }}-service
 {{- end }}
 
-{{/*
-Common labels
-*/}}
-{{- define "saas-topic-02.labels" -}}
-helm.sh/chart: {{ include "saas-topic-02.chart" . }}
-{{ include "saas-topic-02.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end }}
-
-{{/*
-Selector labels
-*/}}
-{{- define "saas-topic-02.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "saas-topic-02.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "saas-topic-02.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "saas-topic-02.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
+{{- define "saas-layouts-topic-02.selectorlabels" -}}
+front: {{ include "saas-layouts-topic-02.fullname" . }}
 {{- end }}
