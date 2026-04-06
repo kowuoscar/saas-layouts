@@ -8,38 +8,38 @@ Apply Tailwind spacing and sizing utilities to build a centered page container w
 
 ### Spacing scale reminder
 
-| Class | CSS value |
-|---|---|
-| `p-2` | padding: 8px |
-| `p-4` | padding: 16px |
-| `p-6` | padding: 24px |
-| `p-8` | padding: 32px |
-| `px-6` | padding-left + padding-right: 24px |
-| `py-4` | padding-top + padding-bottom: 16px |
-| `mb-4` | margin-bottom: 16px |
+| Class     | CSS value                                                  |
+| --------- | ---------------------------------------------------------- |
+| `p-2`     | padding: 8px                                               |
+| `p-4`     | padding: 16px                                              |
+| `p-6`     | padding: 24px                                              |
+| `p-8`     | padding: 32px                                              |
+| `px-6`    | padding-left + padding-right: 24px                         |
+| `py-4`    | padding-top + padding-bottom: 16px                         |
+| `mb-4`    | margin-bottom: 16px                                        |
 | `mx-auto` | margin-left + margin-right: auto (centers a block element) |
 
 ### Sizing utilities
 
-| Class | CSS value |
-|---|---|
-| `w-full` | width: 100% |
-| `max-w-md` | max-width: 28rem |
-| `max-w-lg` | max-width: 32rem |
+| Class          | CSS value         |
+| -------------- | ----------------- |
+| `w-full`       | width: 100%       |
+| `max-w-md`     | max-width: 28rem  |
+| `max-w-lg`     | max-width: 32rem  |
 | `min-h-screen` | min-height: 100vh |
 
 ### Centering pattern
 
 To horizontally center a block with a max-width:
+
 ```tsx
-<div className="max-w-lg mx-auto">
-  {/* content */}
-</div>
+<div className='max-w-lg mx-auto'>{/* content */}</div>
 ```
 
 To center content both axes with flexbox:
+
 ```tsx
-<div className="flex items-center justify-center min-h-screen">
+<div className='flex items-center justify-center min-h-screen'>
   {/* content */}
 </div>
 ```

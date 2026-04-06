@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "saas-layouts-topic-02.deploymentname" . }}
+  labels:
+    {{- include "saas-layouts-topic-02.selectorlabels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "saas-layouts-topic-02.selectorlabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "saas-layouts-topic-02.selectorlabels" . | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
