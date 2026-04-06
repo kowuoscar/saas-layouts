@@ -3,9 +3,9 @@
 ## Stats
 
 - Started: 2026-04-04
-- Last active: 2026-04-04
+- Last active: 2026-04-05
 - Topics completed: 1 / 20
-- Exercises completed: 7 / 140
+- Exercises completed: 12 / 140
 
 ---
 
@@ -19,13 +19,13 @@ Started: 2026-04-04
 
 | #   | Difficulty | Description                                                                                              | Status         |
 | --- | ---------- | -------------------------------------------------------------------------------------------------------- | -------------- |
-| 01  | easy       | Apply spacing and sizing utilities to build a centered page container with a card inside it              | 🔄 in progress |
-| 02  | easy       | Apply color and border utilities to build status badges and a notification banner                        | 🔒 locked      |
-| 03  | medium     | Use typography utilities to build a hero text block with four distinct typographic levels                | 🔒 locked      |
-| 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button               | 🔒 locked      |
-| 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards  | 🔒 locked      |
-| 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant          | 🔒 locked      |
-| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | 🔒 locked      |
+| 01  | easy       | Apply spacing and sizing utilities to build a centered page container with a card inside it              | ✅ done        |
+| 02  | easy       | Apply color and border utilities to build status badges and a notification banner                        | ✅ done        |
+| 03  | medium     | Use typography utilities to build a hero text block with four distinct typographic levels                | ✅ done        |
+| 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button               | ✅ done        |
+| 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards  | ✅ done        |
+| 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant          | ✅ done        |
+| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | 🔄 in progress |
 
 > Exercise files: `exercises/topic-02/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions
