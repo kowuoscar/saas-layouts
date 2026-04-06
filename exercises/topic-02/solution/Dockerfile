@@ -31,8 +31,6 @@ ENV PORT=3000
 # Allow the Docker container to listen on all network interfaces, not just localhost
 ENV HOSTNAME="0.0.0.0"
 
-COPY --from=build --chown=node:node /app/public ./public
-
 # Set the correct permission for prerender cache
 RUN mkdir .next && chown node:node .next
 
