@@ -7,32 +7,48 @@
 - Topics completed: 2 / 20
 - Exercises completed: 19 / 140
 
+
 ---
 
 ## Current Topic
 
-**Topic 02 — Utility fundamentals for SaaS UI**
-Status: `complete`
-Started: 2026-04-04
+**Topic 03 — App Router file conventions & route segments**
+Status: `in-progress`
+Started: 2026-04-06
 
 ### Exercises
 
-| #   | Difficulty | Description                                                                                              | Status         |
-| --- | ---------- | -------------------------------------------------------------------------------------------------------- | -------------- |
-| 01  | easy       | Apply spacing and sizing utilities to build a centered page container with a card inside it              | ✅ done        |
-| 02  | easy       | Apply color and border utilities to build status badges and a notification banner                        | ✅ done        |
-| 03  | medium     | Use typography utilities to build a hero text block with four distinct typographic levels                | ✅ done        |
-| 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button               | ✅ done        |
-| 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards  | ✅ done        |
-| 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant          | ✅ done        |
-| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | ✅ done        |
+| #   | Difficulty | Description | Status         |
+| --- | ---------- | ----------- | -------------- |
+| 01  | easy       | TBD         | 🔄 in progress |
+| 02  | easy       | TBD         | 🔒 locked      |
+| 03  | medium     | TBD         | 🔒 locked      |
+| 04  | medium     | TBD         | 🔒 locked      |
+| 05  | medium     | TBD         | 🔒 locked      |
+| 06  | hard       | TBD         | 🔒 locked      |
+| 07  | hard       | TBD         | 🔒 locked      |
 
-> Exercise files: `exercises/topic-02/`
+> Exercise files: `exercises/topic-03/`
 > CI/CD target: Hetzner cluster (kubeadm) · Helm · GitHub Actions
 
 ---
 
 ## Completed Topics
+
+### ✅ Topic 02 — Utility fundamentals for SaaS UI
+
+Completed: 2026-04-06
+Exercises: 7 / 7 done
+
+| #   | Difficulty | Description                                                                                              | Status  |
+| --- | ---------- | -------------------------------------------------------------------------------------------------------- | ------- |
+| 01  | easy       | Apply spacing and sizing utilities to build a centered page container with a card inside it              | ✅ done |
+| 02  | easy       | Apply color and border utilities to build status badges and a notification banner                        | ✅ done |
+| 03  | medium     | Use typography utilities to build a hero text block with four distinct typographic levels                | ✅ done |
+| 04  | medium     | Use flexbox utilities to build a top navigation bar with logo, nav links, and a CTA button               | ✅ done |
+| 05  | medium     | Style the existing Topic 01 app routes with spacing, color, and typography utilities and add stat cards  | ✅ done |
+| 06  | hard       | Build a production-grade SaaS pricing card component with typed props and a highlighted variant          | ✅ done |
+| 07  | hard       | Create a Helm chart skeleton for the app and deploy it manually to the Hetzner cluster with helm install | ✅ done |
 
 ### ✅ Topic 01 — Project foundation & tooling
 
@@ -53,8 +69,6 @@ Exercises: 7 / 7 done
 
 ## Upcoming Topics
 
-- Topic 03 — App Router file conventions & route segments: Understand page.tsx, layout.tsx, loading.tsx, error.tsx, and not-found.tsx and how nested route segments map to nested UI shells.
-- Topic 03 — App Router file conventions & route segments: Understand page.tsx, layout.tsx, loading.tsx, error.tsx, and not-found.tsx and how nested route segments map to nested UI shells.
 - Topic 04 — Root layout & global shell: Build the outermost HTML shell — fonts, global styles, providers — and learn how the root layout wraps every page in a SaaS app.
 - Topic 05 — Responsive design & mobile-first layout: Apply Tailwind breakpoint prefixes to build layouts that collapse gracefully from desktop dashboards to mobile views.
 - Topic 06 — Marketing / public layout: Create the unauthenticated layout shell — top navigation bar, hero section, footer — as a separate nested layout segment from the app shell.
